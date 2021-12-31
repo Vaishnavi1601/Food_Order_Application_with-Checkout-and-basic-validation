@@ -4,13 +4,13 @@ import classes from "./Checkout.module.css";
 const isEmpty = (value) => value.trim() === "";
 const isFiveChars = (value) => value.trim().length !== 5;
 const Checkout = (props) => {
-  const [formInputsValidity, setFormInputsValidity] =  useState({
+ const [formInputsValidity, setFormInputsValidity] =  useState({
     name: true,
     street: true,
     city: true,
     postalCode: true
-
   })
+
   const nameInputRef = useRef();
   const streetInputRef = useRef();
   const postalCodeInputRef = useRef();
@@ -50,6 +50,12 @@ const Checkout = (props) => {
     }
 
     //Submit cart data
+    props.onConfirm({
+      name: enteredName,
+      street: enteredStreet,
+      city: enteredCity,
+      postalCode: enteredPostalCode
+    })
   };
 
   const nameControlClasses = `${classes.control} ${
