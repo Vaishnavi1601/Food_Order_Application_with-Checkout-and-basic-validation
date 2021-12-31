@@ -1,5 +1,4 @@
 import { useContext } from 'react';
-
 import Modal from '../UI/Modal';
 import CartItem from './CartItem';
 import classes from './Cart.module.css';
@@ -16,7 +15,7 @@ const Cart = (props) => {
   };
 
   const cartItemAddHandler = (item) => {
-    cartCtx.addItem(item);
+    cartCtx.addItem({...item, amount:1});
   };
 
   const cartItems = (
